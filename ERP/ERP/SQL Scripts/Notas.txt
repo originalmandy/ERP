@@ -1,0 +1,16 @@
+/* OBTENER EL ID DEL PROCESADOR EN C#*/
+using System.Management;
+ 
+
+            ManagementObjectSearcher mo = new ManagementObjectSearcher("select * from Win32_Processor");
+            foreach (ManagementObject mob in mo.Get())
+            {
+                try
+                {
+                    listBox1.Items.Add(mob["ProcessorId"].ToString());
+                }
+                catch (Exception ex)
+                {
+                    // handle exception
+                }
+            }
